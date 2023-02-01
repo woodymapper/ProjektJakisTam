@@ -1,4 +1,4 @@
-hello.asm
+
 
 
 segment .data
