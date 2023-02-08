@@ -10,7 +10,7 @@
     <form action="" method="post" enctype="multipart/form-data">
         <label for="uploadedFileInput">
 <input type="file" name="uploadedFile" id="uploadedFileInput"><br/>
-<input type="submit" value="Wyślij Plik">
+<input type="submit" value="Wyślij Plik" name="submit">
 </form>
 <?php
 if(isset($_POST['submit'])){
