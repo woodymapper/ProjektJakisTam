@@ -22,7 +22,40 @@ if(isset($_POST['submit'])){
 $targetDir = "img/";
 $sourceFileName =  $_FILES['uploadedFile']['name'];
 $tempURL = $_FILES['uploadedFile']['tmp_name'];
+
+
+$imginfo = getimagesize($tempURL);
+
+if(!is_array($imginfo)){
+
+die(" not img");
+
+}
+
 $targetURL = $targetDir . $sourceFileName;
+
+
+
+
+if(file_exists($targetURL)){
+
+
+    die(" jest plik");
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 move_uploaded_file($tempURL , $targetURL);
 }
 
