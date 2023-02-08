@@ -21,6 +21,19 @@ if(isset($_POST['submit'])){
 
 $targetDir = "img/";
 $sourceFileName =  $_FILES['uploadedFile']['name'];
+
+$sourceFileExtension = pathinfo($sourceFileName, PATHINFO_EXTENSION);
+
+$sourceFileExtension = strtolower($sourceFileExtension);
+
+//hasz komora 420
+
+$newFileName = hash("sha256",$sourceFileName). hrtime(true) . "." . $sourceFileExtension;
+
+
+$targetURL = $targetDir . $newFileName;
+
+
 $tempURL = $_FILES['uploadedFile']['tmp_name'];
 
 
@@ -32,7 +45,6 @@ die(" not img");
 
 }
 
-$targetURL = $targetDir . $sourceFileName;
 
 
 
