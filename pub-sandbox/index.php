@@ -28,8 +28,9 @@ $sourceFileExtension = strtolower($sourceFileExtension);
 
 //hasz komora 420
 
-$newFileName = hash("sha256",$sourceFileName). hrtime(true) . "." . $sourceFileExtension;
-
+//$newFileName = hash("sha256",$sourceFileName). hrtime(true) . "." . $sourceFileExtension;
+$hash = hash("sha256", $sourceFileName . hrtime(true) );
+$newFileName = $hash . ".webp";
 
 $targetURL = $targetDir . $newFileName;
 
@@ -49,6 +50,14 @@ die(" not img");
 
 
 
+$db = new mysqli('localhost', 'root', '', 'BazaCMS');
+$query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?)");
+$dbTimestamp = date("Y-m-d H:i:s");
+$query->bind_param("ss", $dbTimestamp, $hash);
+if(!$query->execute())
+    die("Błąd zapisu do bazy danych");
+
+
 if(file_exists($targetURL)){
 
 
@@ -58,20 +67,8 @@ if(file_exists($targetURL)){
 
 }
 
-
-
-
-
-
-
-
-
-
-
 move_uploaded_file($tempURL , $targetURL);
 }
-
-
 
 ?>
 
