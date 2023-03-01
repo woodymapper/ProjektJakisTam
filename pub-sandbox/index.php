@@ -50,7 +50,11 @@ die(" not img");
 
 
 
+<<<<<<< HEAD
 $db = new mysqli('localhost', 'root', '', 'bazacms');
+=======
+$db = new mysqli('localhost', 'root', '', 'BazaCMS');
+>>>>>>> c4d1263fd12b8c3f011e5a6615c391137a8eabf3
 $query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?)");
 $dbTimestamp = date("Y-m-d H:i:s");
 $query->bind_param("ss", $dbTimestamp, $hash);

@@ -15,11 +15,19 @@
         }
         </style>
 <?php
+<<<<<<< HEAD
 $db = new mysqli('localhost', 'root', '', 'bazacms');
 $q = "SELECT * FROM post ORDER BY timestamp DESC";
 $result = $db->query($q);
 while($row = $result->fetch_assoc()) {
     $hash = $row['FileName'];
+=======
+$db = new mysqli('localhost', 'root', '', 'cms');
+$q = "SELECT * FROM post ORDER BY timestamp DESC";
+$result = $db->query($q);
+while($row = $result->fetch_assoc()) {
+    $hash = $row['filename'];
+>>>>>>> c4d1263fd12b8c3f011e5a6615c391137a8eabf3
     $url = "img/" . $hash . ".webp";
     echo "<img src=\"$url\">";
 }
