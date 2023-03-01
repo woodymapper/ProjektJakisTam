@@ -31,9 +31,10 @@ class Post {
 
  global $db;
  $query = $db->prepare("SELECT * FROM post ORDER BY TimeStamp DESC LIMIT ? OFFSET ?");
- $query->bind_param('ii',$postsPerPage,($pageNumber-1)*$postsPerPage);
+ $offset = ($pageNumber-1)*$postsPerPage;
+ $query->bind_param('ii',$postsPerPage, $offset);
         $query->execute();
-        $result -= $quary->get_result();
+        $result = $query->get_result();
 
         $postsArray = array();
 
