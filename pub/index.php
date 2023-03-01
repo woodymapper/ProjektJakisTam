@@ -17,6 +17,6 @@ if(isset($_POST['submit']))
 
 <?php
 
-var_dump(Post::getLast());
+var_dump(Post::getPage());
 
 ?>
