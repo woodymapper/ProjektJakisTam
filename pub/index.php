@@ -8,7 +8,8 @@ Route::add('/',function(){
 //wyswietlanie
 global $twig;
 $postArray = Post::getPage();
-$twigData = array("postArray"->$postArray,"pageTitle"=>"Strona Główna");
+$twigData = array("postArray"=>$postArray,
+                    "pageTitle"=>"Strona Główna");
 $twig->display('index.html.twig', $twigData);
 
 });
@@ -26,7 +27,7 @@ Route::add('/upload', function(){
 
         $twig->display("index.html.twig");
 
-    
+
 }, 'post');
 
 Route::run('/ProjektJakisTam/pub');

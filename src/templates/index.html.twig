@@ -4,7 +4,7 @@
 
 <h1>{{pageTitle}}</h1>
 <div id="post">
-{% post in postArray %}
+{% for  post in postArray %}
 <img src="{{post.GetFilename()}}">
 <h6>Data Dodania: {{post.getTimestamp}}</h6>
 </div>
