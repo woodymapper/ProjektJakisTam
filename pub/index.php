@@ -27,5 +27,5 @@ Route::add('/upload', function(){
 
 }, 'post');
 
-Route::run('ProjektJakisTam/pub/');
+Route::run('/ProjektJakisTam/pub');
 ?>
