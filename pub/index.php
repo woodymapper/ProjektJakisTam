@@ -4,5 +4,11 @@
 require_once("./../src/config.php");
 use Steampixel\Route;
 
-Route::run('/')
+Route::add("/",function(){
+
+
+
+});
+
+Route::run('ProjektJakisTam/pub/');
 ?>
