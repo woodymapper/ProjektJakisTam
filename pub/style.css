@@ -1,0 +1,19 @@
+div{
+
+    max-width: 1200px;margin:0 auto;
+}
+body {
+
+    padding: 0;
+    margin: 0;
+}
+h1{
+
+    text-align: center;
+}
+.post{
+
+    background-color: aqua;
+    padding: 20;margin: 20;
+
+}

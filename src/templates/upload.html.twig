@@ -1,4 +1,11 @@
 {% include 'header.html.twig' %}
-
+<div>
 <h1>Upload</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <label for="uploadedFileInput">
+<input type="file" name="uploadedFile" id="uploadedFileInput"><br/>
+<input type="submit" value="Wyślij Plik" name="submit">
+</form>
+</div>
 {% include 'footer.html.twig' %} 
