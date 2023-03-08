@@ -2,5 +2,7 @@
     "name": "1157376/projekt-jakis-tam",
     "type": "project",
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "steampixel/simple-php-router": "dev-master"
+    }
 }
