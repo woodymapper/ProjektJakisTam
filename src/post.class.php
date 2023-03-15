@@ -9,21 +9,20 @@ class Post {
         $this->filename = $f;
         $this->timestamp = $t;
     }
-    public function getFilename():string{
 
-        return $this->$filename;
+    public function getFilename() : string {
+        return $this->filename;
     }
-    public function getTimestamp():string{
-
-        return $this->$timestamp;
+    public function getTimestamp() : string {
+        return $this->timestamp;
     }
 
-
+    //funkcja zwraca ostatnio dodany obrazek
     static function getLast() : Post {
         //odwołuję się do bazy danych
         global $db;
         //Przygotuj kwerendę do bazy danych
-        $query = $db->prepare("SELECT * FROM post ORDER BY TimeStamp DESC LIMIT 1");
+        $query = $db->prepare("SELECT * FROM post ORDER BY timestamp DESC LIMIT 1");
         //wykonaj kwerendę
         $query->execute();
         //pobierz wynik
@@ -36,27 +35,29 @@ class Post {
         return $p; 
     }
 
-    static function getPage(int $pageNumber = 1, int $postsPerPage = 10){
-
- global $db;
- $query = $db->prepare("SELECT * FROM post ORDER BY TimeStamp DESC LIMIT ? OFFSET ?");
- $offset = ($pageNumber-1)*$postsPerPage;
- $query->bind_param('ii',$postsPerPage, $offset);
+    //funkcja zwraca jedna stronę obrazków
+    static function getPage(int $pageNumber = 1, int $postsPerPage = 10) : array {
+        //połączenie z bazą
+        global $db;
+        //kwerenda
+        $query = $db->prepare("SELECT * FROM post ORDER BY timestamp DESC LIMIT ? OFFSET ?");
+        //oblicz przesunięcie - numer strony * ilość zdjęć na stronie
+        $offset = ($pageNumber-1)*$postsPerPage;
+        //podstaw do kwerendy
+        $query->bind_param('ii', $postsPerPage, $offset);
+        //wywołaj kwerendę
         $query->execute();
+        //odbierz wyniki
         $result = $query->get_result();
-
+        //stwórz tablicę na obiekty
         $postsArray = array();
-
-
-        while ($row = $result->fetch_assoc()){
-            $post = new Post($row['ID'], $row['FileName'], $row['TimeStamp']);
-             array_push($postsArray,$post);
-
+        //pobieraj wiersz po wierszu jako tablicę asocjacyjną indeksowaną nazwami kolumn z mysql
+        while($row = $result->fetch_assoc()) {
+            $post = new Post($row['ID'],$row['FileName'],$row['TimeStamp']);
+            array_push($postsArray, $post);
         }
         return $postsArray;
     }
-
-
 
     static function upload(string $tempFileName) {
         //deklarujemy folder do którego będą zaczytywane obrazy
