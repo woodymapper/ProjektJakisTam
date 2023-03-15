@@ -1,14 +1,15 @@
 {% include 'header.html.twig' %}
-<div>
-<h1>Main Page</h1>
+<div id="pageContainer">
+    <h1>{{pageTitle}}</h1>
 
-<h1>{{pageTitle}}</h1>
-<div id="post">
-{% for  post in postArray %}
-<img src="{{post.GetFilename()}}">
-<h6>Data Dodania: {{post.getTimestamp}}</h6>
+    {% for post in postArray %}
+    <div id="post">
+        <img src="{{ post.getFilename() }}">
+        <h6>Data dodania: {{ post.getTimestamp() }} </h6>
+        <H6>Tytuł: {{post.getTitle}}</H6>
+    </div>
+    {% endfor %}
 </div>
-{{post.getFilename()}}
-</div>
-{% endfor %}
-{% include 'footer.html.twig' %} 
+
+
+{% include 'footer.html.twig' %}

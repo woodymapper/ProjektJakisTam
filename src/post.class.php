@@ -1,19 +1,22 @@
 <?php
-
-
 class Post {
     private int $id;
     private string $filename;
     private string $timestamp;
+    private string $Title;
 
-    function __construct(int $i, string $f, string $t) {
+    function __construct(int $i, string $f, string $t,string $T) {
         $this->id = $i;
         $this->filename = $f;
         $this->timestamp = $t;
+        $this->Title = $T;
     }
 
     public function getFilename() : string {
         return $this->filename;
+    }
+    public function getTitle() : string {
+        return $this->Title;
     }
     public function getTimestamp() : string {
         return $this->timestamp;
@@ -77,6 +80,7 @@ class Post {
         $hash = hash("sha256", $randomNumber);
         //tworzymy docelowy url pliku graficznego na serwerze
         $newFileName = $targetDir . $hash . ".webp";
+        $dbTitle = "1";
         //sprawdź czy plik przypadkiem już nie istnieje
         if(file_exists($newFileName)) {
             die("BŁĄD: Podany plik już istnieje!");
@@ -92,11 +96,12 @@ class Post {
         //użyj globalnego połączenia
         global $db;
         //stwórz kwerendę
-        $query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?)");
+        $query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?, ?)");
         //przygotuj znacznik czasu dla bazy danych
         $dbTimestamp = date("Y-m-d H:i:s");
+       
         //zapisz dane do bazy
-        $query->bind_param("ss", $dbTimestamp, $newFileName);
+        $query->bind_param("sss", $dbTimestamp, $newFileName, $dbTitle);
         if(!$query->execute())
             die("Błąd zapisu do bazy danych");
 

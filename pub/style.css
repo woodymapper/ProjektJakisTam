@@ -1,19 +1,19 @@
-div{
-
-    max-width: 1200px;margin:0 auto;
-}
 body {
-
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
-h1{
-
+div#pageContainer {
+    max-width: 960px;
+    margin: 0 auto;
+}
+h1 {
     text-align: center;
 }
-.post{
-
-    background-color: aqua;
-    padding: 20;margin: 20;
-
+div#post {
+    background-color: lightgray;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+div#post img {
+    width: 100%;
 }
