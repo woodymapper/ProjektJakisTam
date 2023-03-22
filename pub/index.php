@@ -26,5 +26,23 @@ Route::add('/upload',function(){
     header("Location: http://localhost/ProjektJakisTam/pub");
 },'post');
 
+
+Route::add('/register', function(){
+    //strona do wgrywania
+    global $twig;
+    $twigData = array("pageTitle" => "Regiter");
+    $twig->display("register.html.twig",$twigData);
+});
+
+Route::add('/register',function(){
+
+    global $twig;
+    if(isset($_POST['submit'])){
+
+        User::register($_POST['email'], $_POST['password']);
+        header("Location: http://localhost/ProjektJakisTam/pub");
+    }
+},'post');
+
 Route::run('/ProjektJakisTam/pub')
 ?>
