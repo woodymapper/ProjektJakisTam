@@ -2,15 +2,21 @@
 class User {
 
  private $email;
+private $id;
 
-
-public function __construct($email){
+public function __construct($email, $id){
 
     $this->emial=$email;
-
+    $this->id = $id;
 }
 
 //getek
+
+
+public function getId( ): int{
+
+    return $this->id;
+}
 
 public function getName( ): string{
 
@@ -39,9 +45,9 @@ public static function login(string $email, string $password){
     $passwordHash = $row['password'];
     if(password_verify($password, $passwordHash)){
                         //hasłą git gud
-            $u = new User($email);
+            $u = new User($row["id"],$email);
             $_SESSION['user'] = $u;
-            
+
     }
 
 } 
