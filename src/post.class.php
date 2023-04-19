@@ -113,7 +113,7 @@ class Post {
         
         $dbTimestamp = date("Y-m-d H:i:s");
         $titleString = $_POST['uploadedTitle'];
-        $query->bind_param("sssi", $dbTimestamp, $newFileName, $titleString, $userID,$like);
+        $query->bind_param("sssi", $dbTimestamp, $newFileName, $titleString, $userID);
         if(!$query->execute())
             die("Błąd zapisu do bazy danych");
 
