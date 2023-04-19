@@ -109,11 +109,11 @@ class Post {
 
         global $db;
         
-        $query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?, ?, ?)");
+        $query = $db->prepare("INSERT INTO post VALUES(NULL, ?, ?, ?,?)");
         
         $dbTimestamp = date("Y-m-d H:i:s");
         $titleString = $_POST['uploadedTitle'];
-        $query->bind_param("sssi", $dbTimestamp, $newFileName, $titleString, $userID);
+        $query->bind_param("sssi", $dbTimestamp, $newFileName, $titleString, $userID,$like);
         if(!$query->execute())
             die("Błąd zapisu do bazy danych");
 
