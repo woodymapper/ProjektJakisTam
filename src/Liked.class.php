@@ -46,7 +46,7 @@ class Liked {
     
         }
         elseif(mysqli_num_rows($result) == 1 && mysqli_num_rows($result2) == 1) {
-            die("coś zjebałeś i nagle użytkownik polubił i odpolubił zdjęcie");
+            die("A");
         }
         
     }
