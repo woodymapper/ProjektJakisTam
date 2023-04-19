@@ -3,7 +3,7 @@ body {
     padding: 0;
 }
 div#pageContainer {
-    max-width: 960px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 h1 {
@@ -14,14 +14,13 @@ div#post {
     padding: 20px;
     margin-bottom: 20px;
 }
-div#post img {
+div#post > img {
     width: 100%;
 }
 div#loggedUser {
     text-align: right;
     font-weight: 1.5rem;
-
 }
-img.thumbnail{
-    max-width: 100px;
+img.thumbnail {
+    max-width: 300px;
 }
