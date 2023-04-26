@@ -6,5 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ pageTitle|default("Strona z memami") }}</title>
     <link rel="stylesheet" href="style.css">
+       <style>
+		.banner {
+			background-color: #2d2d2d;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+		}
+        .left-banner {
+            height: 100%;
+			position: fixed;
+			top: 50%;
+			left: 0;
+			transform: translateY(-50%);
+            background-color: #2d2d2d;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+            z-index: 1;
+		}
+		
+		.right-banner {
+			position: fixed;
+            height: 100%;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			background-color: #2d2d2d;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+            z-index: 1;
+		}
+	</style>
 </head>
-<body style="background-color: maroon">
+
+<body style="background-color: maroon;  z-index: 2;">
+    <div class="right-banner ">
+        <p>Reddot.su</p>
+        <img src="6BeM.gif" width="310" height="200"><br/>
+        <img src="stalon.gif" width="310" height="200"><br/>
+        <img src="lgbtstalin.gif" width="310" height="200"><br/>
+    </div>
+    <div class="left-banner ">
+        <p>Reddot.su Najlepsze memy</p>
+        <img src="stalin.gif" width="310" height="200"><br/>
+        <img src="stalin-soviet.gif" width="310" height="200"><br/>
+        <img src="stalin_hello.gif" width="310" height="200"><br/>
+     
+    </div>
+    	<div class="banner">
+            <p>Reddot.su</p>
+            <img src="Animated-Flag-USSR.gif">
+        </div>
